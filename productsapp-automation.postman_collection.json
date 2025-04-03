@@ -1,0 +1,110 @@
+{
+	"info": {
+		"_postman_id": "4c2d407d-9986-465e-8a12-4ee440531d45",
+		"name": "productsapp-automation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43365730",
+		"_collection_link": "https://galactic-capsule-832693.postman.co/workspace/Team-Workspace~7d8e2a7a-4522-4ac2-807d-3be6726ebdc3/collection/43365730-4c2d407d-9986-465e-8a12-4ee440531d45?action=share&source=collection_link&creator=43365730"
+	},
+	"item": [
+		{
+			"name": "GetAllProducts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"\r",
+							"pm.test(\"value of [0].Id to be 1\", () => {pm.expect(jsonData[0].Id).to.equal(1)});\r",
+							"\r",
+							"pm.test(\"value of [1].Id to be 2\", () => {pm.expect(jsonData[1].Id).to.equal(2)});\r",
+							"\r",
+							"pm.test(\"value of [2].Id to be 3\", () => {pm.expect(jsonData[2].Id).to.equal(3)});\r",
+							"\r",
+							"pm.test(\"response to be 200 OK\", () => {pm.response.to.have.status(200)});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44343/api/products",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "secondRequest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Name is Hammer\", function () {\r",
+							"    pm.expect(jsonData.Name).to.equal(\"Hammer\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"value of [2].Id to be 3\", function () {\r",
+							"    pm.expect(jsonData.Id).to.equal(3);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is 200 OK\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Category is Hardware\", function () {\r",
+							"    pm.expect(jsonData.Category).to.equal(\"Hardware\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Price is 16.99\", function () {\r",
+							"    pm.expect(jsonData.Price).to.equal(16.99);\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44343/api/products/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"products",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
