@@ -18,9 +18,46 @@
 							"\r",
 							"pm.test(\"value of [0].Id to be 1\", () => {pm.expect(jsonData[0].Id).to.equal(1)});\r",
 							"\r",
+							"pm.test(\"Name is Potato Soup\", function () {\r",
+							"    pm.expect(jsonData[0].Name).to.equal(\"Potato Soup\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Category is Schmoceries\", function () {\r",
+							"    pm.expect(jsonData[0].Category).to.equal(\"Schmoceries\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Price is 42.0\", function () {\r",
+							"    pm.expect(jsonData[0].Price).to.equal(42.0);\r",
+							"});\r",
+							"\r",
+							"\r",
 							"pm.test(\"value of [1].Id to be 2\", () => {pm.expect(jsonData[1].Id).to.equal(2)});\r",
 							"\r",
+							"pm.test(\"Name is Yo-yo\", function () {\r",
+							"    pm.expect(jsonData[1].Name).to.equal(\"Yo-yo\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Category is Toys\", function () {\r",
+							"    pm.expect(jsonData[1].Category).to.equal(\"Toys\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Price is 3.75\", function () {\r",
+							"    pm.expect(jsonData[1].Price).to.equal(3.75);\r",
+							"});\r",
+							"\r",
 							"pm.test(\"value of [2].Id to be 3\", () => {pm.expect(jsonData[2].Id).to.equal(3)});\r",
+							"\r",
+							"pm.test(\"Name is Hammer\", function () {\r",
+							"    pm.expect(jsonData[2].Name).to.equal(\"Hammer\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Category is Hardware\", function () {\r",
+							"    pm.expect(jsonData[2].Category).to.equal(\"Hardware\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Price is 16.99\", function () {\r",
+							"    pm.expect(jsonData[2].Price).to.equal(16.99);\r",
+							"});\r",
 							"\r",
 							"pm.test(\"response to be 200 OK\", () => {pm.response.to.have.status(200)});\r",
 							"\r",
@@ -59,24 +96,24 @@
 						"exec": [
 							"var jsonData = pm.response.json();\r",
 							"\r",
-							"pm.test(\"Name is Hammer\", function () {\r",
-							"    pm.expect(jsonData.Name).to.equal(\"Hammer\");\r",
+							"pm.test(\"Name is Potato Soup\", function () {\r",
+							"    pm.expect(jsonData.Name).to.equal(\"Potato Soup\");\r",
 							"});\r",
 							"\r",
-							"pm.test(\"value of [2].Id to be 3\", function () {\r",
-							"    pm.expect(jsonData.Id).to.equal(3);\r",
+							"pm.test(\"value of [0].Id to be 1\", function () {\r",
+							"    pm.expect(jsonData.Id).to.equal(1);\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Response is 200 OK\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"pm.test(\"Category is Hardware\", function () {\r",
-							"    pm.expect(jsonData.Category).to.equal(\"Hardware\");\r",
+							"pm.test(\"Category is Schmoceries\", function () {\r",
+							"    pm.expect(jsonData.Category).to.equal(\"Schmoceries\");\r",
 							"});\r",
 							"\r",
-							"pm.test(\"Price is 16.99\", function () {\r",
-							"    pm.expect(jsonData.Price).to.equal(16.99);\r",
+							"pm.test(\"Price is 42.0\", function () {\r",
+							"    pm.expect(jsonData.Price).to.equal(42.0);\r",
 							"});\r",
 							"\r",
 							"\r",
@@ -91,7 +128,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://localhost:44343/api/products/2",
+					"raw": "https://localhost:44343/api/products/1",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -100,53 +137,7 @@
 					"path": [
 						"api",
 						"products",
-						"2"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GetAllProducts lab12",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"var jsonData = JSON.parse(responseBody);\r",
-							"\r",
-							"pm.test(\"value of [0].Id to be 1\", () => {pm.expect(jsonData[0].Id).to.equal(1)});\r",
-							"\r",
-							"pm.test(\"value of [1].Id to be 2\", () => {pm.expect(jsonData[1].Id).to.equal(2)});\r",
-							"\r",
-							"pm.test(\"value of [2].Id to be 3\", () => {pm.expect(jsonData[2].Id).to.equal(3)});\r",
-							"\r",
-							"pm.test(\"response to be 200 OK\", () => {pm.response.to.have.status(200)});\r",
-							"\r",
-							"\r",
-							""
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://localhost:44343/api/products",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "44343",
-					"path": [
-						"api",
-						"products"
+						"1"
 					]
 				}
 			},
